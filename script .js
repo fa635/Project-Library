@@ -63,6 +63,8 @@ function displayBooks() {
     const authorTd = document.createElement("td")
     const pagesTd = document.createElement("td")
     const readTd = document.createElement("td")
+
+    const remove = document.createElement("button")
     
     table.appendChild(tr)
 
@@ -70,11 +72,20 @@ function displayBooks() {
     tr.appendChild(authorTd)
     tr.appendChild(pagesTd)
     tr.appendChild(readTd)
+    tr.appendChild(remove)
 
     titleTd.textContent = myLibrary[i].title;
     authorTd.textContent = myLibrary[i].author;
     pagesTd.textContent = myLibrary[i].pages;
     readTd.textContent = myLibrary[i].read;
+
+    remove.textContent = "remove"
+    remove.addEventListener("click", deleteBook)
+
+    function deleteBook() {
+        tr.remove()
+    }
+
     i++
     
 }
