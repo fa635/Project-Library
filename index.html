@@ -9,13 +9,54 @@
 </head>
 <body>
 
-    <div class="books"></div>
+    <table>
+
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Pages</th>
+            <th>Read</th>
+        </tr>
+
+    </table>
+
+    <div class="books">
+        <div class="title"></div>
+        <div class="author"></div>
+        <div class="pages"></div>
+        <div class="read"></div>
+    </div>
 
     
 
     <dialog>
         <button>close</button>
-        ihbjbvhbbjlkhvihvjhv hjhjhjbhj hjbhbjhjb bhjbjhlhj
+        
+        <form action="#" method="post" id="bookForm">
+
+            <div>
+                <label for="title">title</label>
+                <input type="text" id="title" name="title">
+            </div>
+
+            <div>
+                <label for="author">author</label>
+                <input type="text" id="author" name="author">
+            </div>
+
+            <div>
+                <label for="pages">pages</label>
+                <input type="text" id="pages" name="pages">
+            </div>
+
+            <div>
+                <label for="read">read</label>
+                <input type="text" id="read" name="read">
+            </div>
+            
+            <button class="submit" type="submit">add</button>
+
+        </form>
 
     </dialog>
     <button>show btn</button>
