@@ -19,7 +19,15 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary() {
 
-    myLibrary.push(this)
+    book = {}
+
+    book.title = this.title;
+    book.author = this.author;
+    book.pages = this.pages;
+    book.read = this.read;
+
+
+    myLibrary.push(book)
     console.log(myLibrary)
 
     displayBooks()
@@ -41,7 +49,7 @@ bookForm.addEventListener("submit", (e) => {
     title = title.value;
     author = author.value;
     pages = pages.value;
-    read = read.value;
+    read = read.checked;
 
     Book(title, author, pages, read)
 
@@ -65,6 +73,8 @@ function displayBooks() {
     const readTd = document.createElement("td")
 
     const remove = document.createElement("button")
+
+    const readBtn = document.createElement("button")
     
     table.appendChild(tr)
 
@@ -77,7 +87,7 @@ function displayBooks() {
     titleTd.textContent = myLibrary[i].title;
     authorTd.textContent = myLibrary[i].author;
     pagesTd.textContent = myLibrary[i].pages;
-    readTd.textContent = myLibrary[i].read;
+    
 
     remove.textContent = "remove"
     remove.addEventListener("click", deleteBook)
@@ -86,9 +96,27 @@ function displayBooks() {
         tr.remove()
     }
 
+    readTd.appendChild(readBtn)
+    readBtn.textContent = myLibrary[i].read;
+    
+    readBtn.addEventListener("click", changeBoolean)
+    
+    function changeBoolean() {
+        
+
+        if (readBtn.textContent === "true") {
+            readBtn.textContent = false
+        }
+        else {
+            readBtn.textContent = true
+        }
+    }
+
     i++
     
 }
+
+
 
 
 const dialog = document.querySelector("dialog");
