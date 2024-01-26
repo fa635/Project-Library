@@ -59,6 +59,7 @@ bookForm.addEventListener("submit", (e) => {
 
 
 i = 0
+e = 0
 function displayBooks() {
     
     const body = document.querySelector("body")
@@ -73,8 +74,11 @@ function displayBooks() {
     const readTd = document.createElement("td")
 
     const remove = document.createElement("button")
+    remove.setAttribute("data-index", e)
 
     const readBtn = document.createElement("button")
+    readBtn.setAttribute("data-index", e)
+    e++
     
     table.appendChild(tr)
 
@@ -94,6 +98,7 @@ function displayBooks() {
 
     function deleteBook() {
         tr.remove()
+        delete myLibrary[remove.dataset.index]
     }
 
     readTd.appendChild(readBtn)
@@ -102,13 +107,15 @@ function displayBooks() {
     readBtn.addEventListener("click", changeBoolean)
     
     function changeBoolean() {
-        
 
         if (readBtn.textContent === "true") {
-            readBtn.textContent = false
+            readBtn.textContent = false;
+            myLibrary[readBtn.dataset.index].read = false
+    
         }
         else {
             readBtn.textContent = true
+            myLibrary[readBtn.dataset.index].read = true
         }
     }
 
