@@ -4,13 +4,19 @@ const myLibrary = [];
 
 
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
 
+
+class Book {
+
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+
+    }
+
+}
 
 
 
@@ -21,10 +27,10 @@ function addBookToLibrary() {
 
     book = {}
 
-    book.title = this.title;
-    book.author = this.author;
-    book.pages = this.pages;
-    book.read = this.read;
+    book.title = title.value;
+    book.author = author.value;
+    book.pages = pages.value;
+    book.read = read.checked;
 
 
     myLibrary.push(book)
@@ -51,7 +57,7 @@ bookForm.addEventListener("submit", (e) => {
     pages = pages.value;
     read = read.checked;
 
-    Book(title, author, pages, read)
+    new Book(title, author, pages, read)
 
     addBookToLibrary()
 
